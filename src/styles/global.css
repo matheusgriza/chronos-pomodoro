@@ -1,0 +1,9 @@
+:root {
+  --primary-color: antiquewhite;
+  --font-family: 'Helvetica';
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: var(--font-family);
+}
