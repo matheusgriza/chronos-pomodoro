@@ -16,12 +16,6 @@ export function App() {
           <Heading>LOGO</Heading>
         </section>
       </Container>
-      <Container>
-        <section>FORM</section>
-      </Container>
-      <Container>
-        <section>FOOTER</section>
-      </Container>
     </>
   );
 }
