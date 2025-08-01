@@ -1,6 +1,5 @@
 import styles from './Heading.module.css';
 
-export function Heading() {
-  const c = `${styles.heading} ${styles.matheus}`;
-  return <h1 className={c}>Olá Mundo</h1>;
+export function Heading(props) {
+  return <h1 className={styles.heading}>{props.children}</h1>;
 }
