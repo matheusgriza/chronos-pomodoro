@@ -26,10 +26,12 @@ export function App() {
         <form className='form' action=''>
           <div className='formRow'>
             <DefaultInput
-              type='password'
+              type='text'
               id='abc12345'
               labelText='Task'
               required
+              defaultValue='Estudar React'
+              placeholder='Task'
             />
           </div>
 
@@ -38,8 +40,7 @@ export function App() {
           </div>
 
           <div className='formRow'>
-            <p>Ciclos</p>
-            <p>0 0 0 0 0</p>
+
           </div>
 
           <div className='formRow'>
