@@ -1,11 +1,26 @@
-import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from 'lucide-react';
+import {
+  HistoryIcon,
+  HouseIcon,
+  MoonIcon,
+  SettingsIcon,
+  SunIcon,
+} from 'lucide-react';
 import styles from './styles.module.css';
 import { useEffect, useState } from 'react';
 
 type AvailableThemes = 'dark' | 'light';
 
 export function Menu() {
-  const [theme, setTheme] = useState<AvailableThemes>('dark');
+  const [theme, setTheme] = useState<AvailableThemes>(() => {
+    const storedTheme =
+      (localStorage.getItem('theme') as AvailableThemes) || 'dark';
+    return storedTheme;
+  });
+
+  const nextThemeIcon = {
+    dark: <SunIcon />,
+    light: <MoonIcon />,
+  };
 
   // useEffect(() => {}); //Executes everytime the component renders
 
@@ -13,9 +28,13 @@ export function Menu() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    //Clean up function. It clean anything that the component may be messed when was used. So the first render doesn't get messy.
+    /*
     return () => {
       console.log('Enqueued function. Theme will be changed to', theme);
     };
+    */
   }, [theme]); //Executes only when the value inside deps changes (theme on this case)
 
   function handleThemeChange(event: React.MouseEvent) {
@@ -28,7 +47,6 @@ export function Menu() {
 
   return (
     <nav className={styles.menu}>
-      <h1>{theme}</h1>
       <a
         className={styles.menuLink}
         href='#'
@@ -63,7 +81,7 @@ export function Menu() {
         title='Theme'
         onClick={handleThemeChange}
       >
-        <SunIcon />
+        {nextThemeIcon[theme]}
       </a>
     </nav>
   );
