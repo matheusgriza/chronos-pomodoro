@@ -27,7 +27,7 @@ export function MainForm() {
 
       <div className='formRow'>
         <DefaultButton icon={<PlayCircleIcon />} color='green' />
-        <DefaultButton icon={<StopCircleIcon />} color='red' />
+        {/* <DefaultButton icon={<StopCircleIcon />} color='red' /> */}
       </div>
     </form>
   );
