@@ -2,8 +2,11 @@ import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 export function MainForm() {
+  const { setState } = useTaskContext();
+
   return (
     <form className='form' action=''>
       <div className='formRow'>
