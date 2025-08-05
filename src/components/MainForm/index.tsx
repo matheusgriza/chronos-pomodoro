@@ -2,21 +2,31 @@ import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
-import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
+// import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
+import { useState } from 'react';
 
 export function MainForm() {
-  const { setState } = useTaskContext();
+  const [taskName, setTaskName] = useState('');
+
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    console.log(taskName);
+
+    setTaskName('');
+
+    // const task = event.
+  }
 
   return (
-    <form className='form' action=''>
+    <form className='form' action='' onSubmit={handleCreateNewTask}>
       <div className='formRow'>
         <DefaultInput
           type='text'
           id='abc12345'
           labelText='Task'
           required
-          defaultValue='Estudar React'
           placeholder='Task'
+          value={taskName}
+          onChange={e => setTaskName(e.target.value)}
         />
       </div>
 
