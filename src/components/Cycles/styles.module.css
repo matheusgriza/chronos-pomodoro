@@ -21,10 +21,10 @@
   background-color: var(--success);
 }
 
-.restTimeShort {
+.shortBreakTime {
   background-color: var(--warning);
 }
 
-.restTimeLong {
+.longBreakTime {
   background-color: var(--info);
 }
